@@ -1,4 +1,7 @@
 'largest_factor-correct', (0, 70)
 'with_if_statement-correct', (512, 70)
 'with_if_function-correct', (1024, 70)
+<<<<<<< HEAD
 'hailstone-correct', (1536, 70)
+=======
+>>>>>>> a283ee99194257e5270889f495993fffa1514d47

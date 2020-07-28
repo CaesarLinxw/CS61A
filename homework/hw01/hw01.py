@@ -121,11 +121,14 @@ def false_func():
 def hailstone(x):
     """Print the hailstone sequence starting at x and return its
     length.
+<<<<<<< HEAD
     
     1. Pick a positive integer x as the start.
     2. If x is even, divide it by 2.
     3. If x is odd, multiply it by 3 and add 1.
     4. Continue this process until x is 1.
+=======
+>>>>>>> a283ee99194257e5270889f495993fffa1514d47
 
     >>> a = hailstone(10)
     10
@@ -139,6 +142,7 @@ def hailstone(x):
     7
     """
     "*** YOUR CODE HERE ***"
+<<<<<<< HEAD
     i = 1
     while True:
         if x <= 0:
@@ -156,3 +160,6 @@ def hailstone(x):
             x = x*3 + 1
             i += 1
     
+=======
+
+>>>>>>> a283ee99194257e5270889f495993fffa1514d47
