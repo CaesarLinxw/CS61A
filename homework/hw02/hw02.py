@@ -32,6 +32,14 @@ def product(n, term):
     """
     "*** YOUR CODE HERE ***"
 
+    i = 1
+    p = 1
+    while i <= n:
+        p = p * term(i)
+        i += 1
+    return p
+
+
 
 def accumulate(combiner, base, n, term):
     """Return the result of combining the first n terms in a sequence and base.
