@@ -64,6 +64,8 @@ def accumulate(combiner, base, n, term):
     16
     """
     "*** YOUR CODE HERE ***"
+
+    
     i = 1
     total = base
     if n == 0:
