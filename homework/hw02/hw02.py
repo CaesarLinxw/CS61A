@@ -9,7 +9,7 @@ triple = lambda x: 3 * x
 increment = lambda x: x + 1
 
 
-HW_SOURCE_FILE=__file__
+HW_SOURCE_FILE=__file__f = 1
 
 
 def product(n, term):
@@ -130,6 +130,16 @@ def make_repeater(func, n):
     5
     """
     "*** YOUR CODE HERE ***"
+    i = 2
+    f = func
+    if n == 0:
+        f = identity
+    else:
+        while i <= n:
+            f = compose1(f, func)
+            i += 1
+    return f
+    # return accumulate(compose1, 1, n, func)
 
 
 def zero(f):
