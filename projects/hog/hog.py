@@ -137,11 +137,48 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     feral_hogs: A boolean indicating whether the feral hogs rule should be active.
     """
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
+    sum0 = 0
+    sum1 = 0
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    while score0 < goal and score1 < goal:
+
+        if who == 0:
+            if feral_hogs:
+                if strategy0(score0, score1)- sum0 == 2 or sum0 - strategy0(score0, score1) == 2:
+                    sum0 = take_turn(strategy0(score0, score1), score1, dice)
+                    sum0_final = sum0 + 3
+                else:
+                    sum0 = take_turn(strategy0(score0, score1), score1, dice)
+                    sum0_final = sum0
+                score0 += sum0_final
+            else:
+                sum0 = take_turn(strategy0(score0, score1), score1, dice)
+                sum0_final = sum0
+                score0 += sum0_final
+            if is_swap(score0, score1):
+                score0, score1 = score1, score0
+
+        else:
+            if feral_hogs:
+                if strategy1(score1, score0) - sum1 == 2 or sum1 - strategy1(score1, score0) == 2:
+                    sum1 = take_turn(strategy1(score1, score0), score0, dice)
+                    sum1_final = sum1 + 3
+                else:
+                    sum1 = take_turn(strategy1(score1, score0), score0, dice)
+                    sum1_final = sum1
+                score1 += sum1_final
+            else:
+                sum1 = take_turn(strategy1(score1, score0), score0, dice)
+                sum1_final = sum1
+                score1 += sum1_final
+            if is_swap(score1, score0):
+                score1, score0 = score0, score1
+        who = other(who)
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
+    # The code is integrated in the former section
     "*** YOUR CODE HERE ***"
     # END PROBLEM 6
     return score0, score1
