@@ -22,6 +22,21 @@ def roll_dice(num_rolls, dice=six_sided):
     assert num_rolls > 0, 'Must roll at least once.'
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    sum = 0
+    num_rolled = 1
+    flag = 0
+    while num_rolled <= num_rolls:
+        update = dice()
+        if update == 1:
+            flag = 1
+            sum = 1
+        else:
+            if flag == 1:
+                sum = 1
+            else:
+                sum += update
+        num_rolled += 1
+    return sum
     # END PROBLEM 1
 
 
@@ -33,6 +48,10 @@ def free_bacon(score):
     assert score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+    ones_digit = score % 10
+    tens_digit = score // 10
+    my_score = 10 - ones_digit + tens_digit
+    return my_score
     # END PROBLEM 2
 
 
@@ -51,6 +70,11 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+    if num_rolls == 0:
+        score = free_bacon(opponent_score)
+    else:
+        score = roll_dice(num_rolls, dice)
+    return score
     # END PROBLEM 3
 
 
@@ -60,6 +84,21 @@ def is_swap(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
+    player_ones_digit = player_score % 10
+    if opponent_score >= 100:
+        opponent_ones_tens = opponent_score % 100
+        opponent_ones_digit = opponent_ones_tens % 10
+        opponent_tens_digit = opponent_ones_tens // 10
+    else:
+        opponent_ones_digit = opponent_score % 10
+        opponent_tens_digit = opponent_score // 10
+    gap = player_ones_digit - opponent_ones_digit
+    if gap < 0:
+        gap = -gap
+    if gap == opponent_tens_digit:
+        return True
+    else:
+        return False
     # END PROBLEM 4
 
 
