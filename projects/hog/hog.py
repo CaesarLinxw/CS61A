@@ -139,6 +139,7 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     sum0 = 0
     sum1 = 0
+    f = say
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
     while score0 < goal and score1 < goal:
@@ -175,6 +176,7 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
             if is_swap(score1, score0):
                 score1, score0 = score0, score1
         who = other(who)
+        f = f(score0, score1)
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
