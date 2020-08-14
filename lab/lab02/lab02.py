@@ -79,8 +79,6 @@ def both_paths(sofar="S"):
         return both_paths(sofar + 'D')
     return up, down
 
-
-
 def compose1(f, g):
     """Return the composition function which given x, computes f(g(x)).
 
@@ -113,8 +111,14 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
-
-
+    def equal(x):
+        forward = compose1(f, g)
+        backward = compose1(g, f)
+        if forward(x) == backward(x):
+            return True
+        else:
+            return False
+    return equal
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
@@ -143,4 +147,36 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    def round(n):
+        def apply(x):
+            three = compose1(f3, compose1(f2, f1))
+            two = compose1(f2, f1)
+            one = f1
+            i = 1
+            three_turn = n // 3
+            rest = n % 3
+            middle = x
+            if three_turn == 0:
+                if rest == 0:
+                    return x
+                elif rest == 1:
+                    return one(x)
+                elif rest == 2:
+                    return two(x)
+            else:
+                while i <= three_turn:
+                    middle = three(middle)
+                    i += 1
+                if rest == 0:
+                    final_result = middle
+                    return final_result
+                elif rest == 1:
+                    final_result = one(middle)
+                    return final_result
+                elif rest == 2:
+                    final_result = two(middle)
+                    return final_result
+        return apply
+    return round
+
 
