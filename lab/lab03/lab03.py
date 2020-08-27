@@ -12,6 +12,19 @@ def pascal(row, column):
     3
     """
     "*** YOUR CODE HERE ***"
+    if row == 0 and column == 0:
+        return 1
+    if column == 0:
+        return 1
+    if row < 0:
+        return 0
+    if column < 0:
+        return 0
+    if column > row:
+        return 0
+    else:
+        return pascal(row - 1, column - 1) + pascal(row - 1, column)
+    
 
 
 def compose1(f, g):
