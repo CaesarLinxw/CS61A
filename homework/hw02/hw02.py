@@ -141,7 +141,6 @@ def make_repeater(func, n):
     return f
     # return accumulate(compose1, 1, n, func)
 
-
 def zero(f):
     return lambda x: x
 
