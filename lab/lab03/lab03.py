@@ -25,7 +25,8 @@ def pascal(row, column):
     else:
         return pascal(row - 1, column - 1) + pascal(row - 1, column)
     
-
+def identity(x):
+    return x
 
 def compose1(f, g):
     """"Return a function h, such that h(x) = f(g(x))."""
@@ -53,6 +54,12 @@ def repeated(f, n):
     True
     """
     "*** YOUR CODE HERE ***"
+    if n == 1:
+        return f
+    if n == 0:
+        return identity
+    else:
+        return compose1(f, repeated(f, n - 1))
 
 
 def num_eights(x):
