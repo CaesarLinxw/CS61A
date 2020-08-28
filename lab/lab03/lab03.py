@@ -126,18 +126,14 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
-    direction = -1
-    if num_eights(n - 1) or (n - 1) % 8 == 0:
-        direction *= -1
-    if n == 1:
-        return 1
-    else:
-        if direction == -1:
-            print('+')
-            return pingpong(n - 1) + 1
+    def pingpong_helper(value, index, direction):
+        if index == n:
+            return value
+        elif num_eights(index + 1) or (index + 1) % 8 == 0:
+            return pingpong_helper(value + direction, index + 1, -direction)
         else:
-            print('-')
-            return pingpong(n - 1) - 1
+            return pingpong_helper(value + direction, index + 1, direction)
+    return pingpong_helper(1, 1, 1)
     
     
     
