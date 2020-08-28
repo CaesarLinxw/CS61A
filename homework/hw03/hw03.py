@@ -72,13 +72,19 @@ def g_iter(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    first, second, third = 1, 2, 3
+    i = 3
     if n == 1:
-        return 1
+        return first
     if n == 2:
-        return 2
+        return second
     if n == 3:
-        return 3
-    i = 1
+        return third
+    else:
+        while i < n:
+            first, second, third = second, third, 3 * first + 2 * second + third
+            i += 1
+        return third
 
 
 def missing_digits(n):
