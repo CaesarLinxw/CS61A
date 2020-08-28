@@ -134,7 +134,3 @@ def pingpong(n):
         else:
             return pingpong_helper(value + direction, index + 1, direction)
     return pingpong_helper(1, 1, 1)
-    
-    
-    
-
