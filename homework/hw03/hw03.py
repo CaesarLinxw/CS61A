@@ -193,6 +193,18 @@ def move_stack(n, start, end):
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
     "*** YOUR CODE HERE ***"
+    if (start == 1 and end == 3) or (start == 3 and end == 1):
+        middle = 2
+    elif (start == 2 and end == 3) or (start == 3 and end == 2):
+        middle = 1
+    elif (start == 1 and end == 2) or (start == 2 and end == 1):
+        middle = 3
+    if n == 1:
+        print_move(start, end)
+    else:
+        move_stack(n - 1, start, middle)
+        move_stack(1, start, end)
+        move_stack(n - 1, middle, end)
 
 
 from operator import sub, mul
