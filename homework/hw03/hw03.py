@@ -1,5 +1,10 @@
 HW_SOURCE_FILE=__file__
 
+def compose1(func1, func2):
+    """Return a function f, such that f(x) = func1(func2(x))."""
+    def f(x):
+        return func1(func2(x))
+    return f
 
 def composer(func=lambda x: x):
     """
@@ -21,6 +26,7 @@ def composer(func=lambda x: x):
     """
     def func_adder(g):
         "*** YOUR CODE HERE ***"
+        return composer(compose1(func, g))
     return func, func_adder
 
 
@@ -153,10 +159,6 @@ def count_change(total):
         else:
             return change_helper(total - small_coin, small_coin) + change_helper(total, small_coin * 2)
     return change_helper(total, 1)
-
-    
-
-
 
 def print_move(origin, destination):
     """Print instructions to move a disk."""
