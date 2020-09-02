@@ -141,8 +141,19 @@ def count_change(total):
     True
     """
     "*** YOUR CODE HERE ***"
-    if total <= 0:
-        return 0
+    def change_helper(total, small_coin):
+        if total <= 0:
+            return 0
+        elif total == 1 and small_coin == 1:
+            return 1
+        elif total == small_coin:
+            return 1
+        elif small_coin > total:
+            return 0
+        else:
+            return change_helper(total - small_coin, small_coin) + change_helper(total, small_coin * 2)
+    return change_helper(total, 1)
+
     
 
 
