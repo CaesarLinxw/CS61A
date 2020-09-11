@@ -4,6 +4,16 @@ def multiply(m, n):
     else:
         return m + multiply(m, n - 1)
 
+def is_prime(n):
+    def prime_helper(index):
+        if index == n and n != 1:
+            return True
+        elif (n % index == 0 and index != 1) or n == 1:
+            return False
+        else:
+            return prime_helper(index + 1)
+    return prime_helper(1)
+
 def count_stair_ways(n):
     if n == 1:
         return 1
