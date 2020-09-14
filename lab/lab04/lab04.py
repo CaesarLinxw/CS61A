@@ -180,4 +180,21 @@ def add_chars(w1, w2):
     True
     """
     "*** YOUR CODE HERE ***"
+    w1 = list(w1)
+    w2 = list(w2)
+    def helper(index):
+        if len(w1) == 0:
+            convert = ''.join(w2)
+            return convert
+        elif w2[index] == w1[0]:
+            w2.pop(index)
+            w1.pop(0)
+            return helper(index)
+        else:
+            return helper(index + 1)
+    return helper(0)
+    
+
+
+
 
