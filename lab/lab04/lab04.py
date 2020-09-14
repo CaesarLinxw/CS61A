@@ -193,8 +193,3 @@ def add_chars(w1, w2):
         else:
             return helper(index + 1)
     return helper(0)
-    
-
-
-
-
