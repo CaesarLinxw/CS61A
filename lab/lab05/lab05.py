@@ -40,6 +40,13 @@ def berry_finder(t):
     True
     """
     "*** YOUR CODE HERE ***"
+    if (is_leaf(t) and label(t) == 'berry') or (label(t) == 'berry'):
+      return True
+    else:
+      for b in branches(t):
+        if berry_finder(b):
+          return True
+    return False
 
 
 def sprout_leaves(t, leaves):
