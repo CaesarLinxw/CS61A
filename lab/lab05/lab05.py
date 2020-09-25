@@ -89,6 +89,7 @@ def sprout_leaves(t, leaves):
       t = tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])
     return t
 
+
 # Abstraction tests for sprout_leaves and berry_finder
 def check_abstraction():
     """
