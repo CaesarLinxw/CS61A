@@ -40,7 +40,7 @@ def berry_finder(t):
     True
     """
     "*** YOUR CODE HERE ***"
-    if (is_leaf(t) and label(t) == 'berry') or (label(t) == 'berry'):
+    if label(t) == 'berry':
       return True
     else:
       for b in branches(t):
@@ -83,6 +83,11 @@ def sprout_leaves(t, leaves):
           2
     """
     "*** YOUR CODE HERE ***"
+    if is_leaf(t):
+      return tree(label(t), [tree(l) for l in leaves])
+    else:
+      t = tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])
+    return t
 
 # Abstraction tests for sprout_leaves and berry_finder
 def check_abstraction():
