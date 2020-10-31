@@ -107,6 +107,15 @@ def balanced(m):
     True
     """
     "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return True
+    elif total_weight(end(left(m))) * length(left(m)) == total_weight(end(right(m))) * length(right(m)):
+        return balanced(end(left(m))) and balanced(end(right(m)))
+    else:
+        return False
+    
+    
+            
 
 def totals_tree(m):
     """Return a tree representing the mobile with its total weight at the root.
@@ -138,6 +147,11 @@ def totals_tree(m):
     True
     """
     "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return tree(total_weight(m))
+    else:
+        return tree(total_weight(m), [totals_tree(end(left(m))), totals_tree(end(right(m)))])
+    
 
 
 def replace_leaf(t, find_value, replace_value):
