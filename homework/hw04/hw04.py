@@ -202,7 +202,15 @@ def preorder(t):
     [2, 4, 6]
     """
     "*** YOUR CODE HERE ***"
-
+    small_list = []
+    if is_leaf(t):
+        return [label(t)]
+    else:
+        # return [label(t)] + [preorder(branch) for branch in branches(t)]
+        for branch in branches(t):
+            small_list = small_list + preorder(branch)
+        big_list = [label(t)] + small_list
+        return big_list
 
 def has_path(t, phrase):
     """Return whether there is a path in a tree where the entries along the path
