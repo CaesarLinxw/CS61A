@@ -1,3 +1,4 @@
 'total_weight-correct', (0, 70)
 'balanced-correct', (512, 70)
 'totals_tree-correct', (1024, 70)
+'replace_leaf-correct', (1536, 70)

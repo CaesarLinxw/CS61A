@@ -184,6 +184,11 @@ def replace_leaf(t, find_value, replace_value):
     True
     """
     "*** YOUR CODE HERE ***"
+    if is_leaf(t) and label(t) == find_value:
+        return tree(replace_value)
+    else:
+        return tree(label(t), [replace_leaf(branch, find_value, replace_value) for branch in branches(t)])
+
 
 
 def preorder(t):
