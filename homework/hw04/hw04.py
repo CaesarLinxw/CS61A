@@ -242,6 +242,19 @@ def has_path(t, phrase):
     """
     assert len(phrase) > 0, 'no path for empty phrases.'
     "*** YOUR CODE HERE ***"
+    if label(t) != phrase[0]:
+        return False
+    elif len(phrase) > 1:
+        for b in branches(t):
+            if has_path(b, phrase[1:len(phrase)+1]):
+                return True
+            else:
+                continue
+        return False
+    else:
+        return True
+    
+
 
 
 def interval(a, b):

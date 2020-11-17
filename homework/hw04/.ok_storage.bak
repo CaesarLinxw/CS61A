@@ -3,3 +3,4 @@
 'totals_tree-correct', (1024, 70)
 'replace_leaf-correct', (1536, 70)
 'preorder-correct', (2048, 70)
+'has_path-correct', (2560, 70)
