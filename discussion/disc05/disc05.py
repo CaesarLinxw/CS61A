@@ -23,6 +23,45 @@ def find_path(tree, x):
         path = find_path(branch, x)
         if path:
             return [label(tree)] + path
+
+def add_this_many(x, el, lst):
+    times = 0
+    i = 0
+    while i <= (len(lst) - 1):
+        if lst[i] == x:
+            times += 1
+        i += 1 
+    while times > 0:
+        lst.append(el)
+        times -= 1
+
+def group_by(s, fn):
+    group = [(fn(s[0]), [s[0]])]
+    i = 1
+    add = 0
+    while i <= (len(s) - 1):
+        group_index = 0
+        while group_index <= (len(group) - 1):
+            if group[group_index][0] == fn(s[i]):
+                group[group_index][1].append(s[i])
+                add = 1
+                break
+            group_index += 1
+        if add == 0:
+            group.append((fn(s[i]), [s[i]]))
+        add = 0
+        i += 1
+    group_result = dict(group)
+    return sorted(group_result.items(),key=lambda x:x[0],reverse=False)
+
+
+def partition_options(total, biggest):
+    if total == 1:
+        return [1]
+    elif total < biggest:
+        return []
+
+
     
 
 
