@@ -56,10 +56,21 @@ def group_by(s, fn):
 
 
 def partition_options(total, biggest):
-    if total == 1:
-        return [1]
-    elif total < biggest:
+    if total == 0:
+        return [[]]
+    elif total < 0 or biggest == 0:
         return []
+    else:
+        with_biggest = partition_options(total - biggest, biggest)
+        without_biggest = partition_options(total, biggest - 1)
+        with_biggest = [[biggest] + elem for elem in with_biggest]
+        return with_biggest + without_biggest
+
+def min_elements(T, lst):
+    if T == 0:
+        return 0
+    return 1 + min([min_elements(T - i, lst) for i in lst if T - i >= 0])
+        
 
 
     
