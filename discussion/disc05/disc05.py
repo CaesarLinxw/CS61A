@@ -70,11 +70,6 @@ def min_elements(T, lst):
     if T == 0:
         return 0
     return 1 + min([min_elements(T - i, lst) for i in lst if T - i >= 0])
-        
-
-
-    
-
 
 # Tree ADT
 def tree(label, branches=[]):

@@ -17,6 +17,11 @@ def choose(paragraphs, select, k):
     """
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    paragraph = [p for p in paragraphs if select(p)]
+    if k <= len(paragraph) - 1:
+        return paragraph[k]
+    else:
+        return ''
     # END PROBLEM 1
 
 
@@ -33,6 +38,19 @@ def about(topic):
     assert all([lower(x) == x for x in topic]), 'topics should be lowercase.'
     # BEGIN PROBLEM 2
     "*** YOUR CODE HERE ***"
+    def find(paragraph):
+        i = 0
+        while i <= len(topic) - 1:
+            words = split(remove_punctuation(lower(paragraph)))
+            j = 0
+            while j <= len(words) - 1:
+                if topic[i] == words[j]:
+                    return True
+                j += 1
+            i += 1
+        return False
+    return find
+
     # END PROBLEM 2
 
 
