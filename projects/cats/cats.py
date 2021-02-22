@@ -119,7 +119,7 @@ def autocorrect(user_word, valid_words, diff_function, limit):
         return_word = ''
         difference = 100000000
         while i <= len(valid_words) - 1:
-            if diff_function(user_word, valid_words[i], limit) < difference and diff_function(user_word, valid_words[i], limit) < limit:
+            if diff_function(user_word, valid_words[i], limit) < difference and diff_function(user_word, valid_words[i], limit) <= limit:
                 difference = diff_function(user_word, valid_words[i], limit)
                 return_word = valid_words[i]
             i += 1
