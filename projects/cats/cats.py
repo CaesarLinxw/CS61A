@@ -211,6 +211,7 @@ def report_progress(typed, prompt, id, send):
 def fastest_words_report(times_per_player, words):
     """Return a text description of the fastest words typed by each player."""
     game = time_per_word(times_per_player, words)
+    
     fastest = fastest_words(game)
     report = ''
     for i in range(len(fastest)):
@@ -231,6 +232,19 @@ def time_per_word(times_per_player, words):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    i = 0
+    times = []
+    while i <= (len(times_per_player) - 1):
+        j = 0
+        times_for_one_player = []
+        while j <= (len(times_per_player[i]) - 2):
+            times_for_one_player.append(times_per_player[i][j + 1] - times_per_player[i][j])
+            j += 1
+        times.insert(i, times_for_one_player)
+        i += 1
+    return game(words, times)
+        
+
     # END PROBLEM 9
 
 
@@ -246,6 +260,18 @@ def fastest_words(game):
     words = range(len(all_words(game)))    # An index for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
+    fastest = []
+    for i in players:
+        fastest.insert(i, [])
+    for j in words:
+        times_for_this_word = []
+        for k in players:
+            times_for_this_word.append(time(game, k, j))
+        fastest_player = times_for_this_word.index(min(times_for_this_word))
+        fastest[fastest_player].append(word_at(game, j))
+    return fastest
+
+
     # END PROBLEM 10
 
 
