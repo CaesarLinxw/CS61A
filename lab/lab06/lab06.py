@@ -49,6 +49,17 @@ def make_fib():
     True
     """
     "*** YOUR CODE HERE ***"
+    first = 0
+    second = 1
+    def fib():
+        nonlocal first
+        nonlocal second
+        current = first
+        third = first + second
+        first = second
+        second = third
+        return current
+    return fib
 
 
 def insert_items(lst, entry, elem):
