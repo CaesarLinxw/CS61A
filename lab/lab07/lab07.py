@@ -42,14 +42,14 @@ def inc_subseqs(s):
     """
     def subseq_helper(s, prev):
         if not s:
-            return ____________________
+            return [[]]
         elif s[0] < prev:
             return ____________________
         else:
             a = ______________________
             b = ______________________
             return insert_into_all(________, ______________) + ________________
-    return subseq_helper(____, ____)
+    return subseq_helper(s, )
 
 
 def trade(first, second):
