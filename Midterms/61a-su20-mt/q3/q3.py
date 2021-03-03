@@ -42,8 +42,8 @@ def microscope(a=0, s=1):
     100
     """
     def painting(x):
-        return ______, ______
-    ______
+        return microscope(a + s * x, -s), a + s * x
+    return painting
 
 def plush(painting, items):
     """
@@ -63,10 +63,10 @@ def plush(painting, items):
     >>> plush(identity_painting, [2, 90])
     90
     """
-    painting, x = ______
-    if ______:
-        return ______
-    return ______
+    painting, x = painting(items[0])
+    if len(items[1:]) == 0:
+        return x
+    return plush(painting, items[1:])
 
 
 # ORIGINAL SKELETON FOLLOWS
