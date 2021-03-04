@@ -1,3 +1,5 @@
 'subseqs-correct', (0, 70)
 'inc_subseqs-correct', (512, 70)
 'trade-correct', (1024, 70)
+'reverse-correct', (1536, 70)
+'make_glookup-correct', (2048, 70)

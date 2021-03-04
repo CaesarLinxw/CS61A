@@ -108,6 +108,17 @@ def reverse(lst):
     [-8, 72, 42]
     """
     "*** YOUR CODE HERE ***"
+    length = len(lst)
+    copy = lst[:]
+    if length % 2 == 0:
+        for i in range(length):
+            lst[i] = copy[length - 1 - i]
+    else:
+        for i in range(length):
+            if i != ((length - 1) / 2):
+                lst[i] = copy[length - 1 - i]
+
+
 
 
 cs61a = {
@@ -135,6 +146,15 @@ def make_glookup(class_assignments):
     0.8913043478260869
     """
     "*** YOUR CODE HERE ***"
+    total_score = 0
+    total_earn = 0
+    def student(part, score):
+        nonlocal total_earn
+        nonlocal total_score
+        total_score += class_assignments[part]
+        total_earn += score
+        return total_earn / total_score
+    return student
 
 
 def num_trees(n):
