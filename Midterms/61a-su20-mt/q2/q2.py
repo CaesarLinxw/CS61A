@@ -1,6 +1,6 @@
 email = 'example_key'
 
-def schedule(galaxy, sum_to, max_digit):
+
     """
     A 'galaxy' is a string which contains either digits or '?'s.
 
@@ -37,6 +37,7 @@ def schedule(galaxy, sum_to, max_digit):
     >>> schedule('?2??11?', 5, 3)
     ['0200111', '0201110', '0210110', '1200110']
     """
+def schedule(galaxy, sum_to, max_digit):
     def schedule_helper(galaxy, sum_sofar, index):
         if ______ and ______:
             return [galaxy]

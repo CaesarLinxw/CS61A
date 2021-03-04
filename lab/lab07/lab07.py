@@ -44,12 +44,12 @@ def inc_subseqs(s):
         if not s:
             return [[]]
         elif s[0] < prev:
-            return ____________________
+            return subseq_helper(s[1:], prev)
         else:
-            a = ______________________
-            b = ______________________
-            return insert_into_all(________, ______________) + ________________
-    return subseq_helper(s, )
+            a = subseq_helper(s[1:], s[0])
+            b = subseq_helper(s[1:], prev)
+            return insert_into_all(s[0], a) + b
+    return subseq_helper(s, 0)
 
 
 def trade(first, second):
@@ -81,9 +81,9 @@ def trade(first, second):
     """
     m, n = 1, 1
 
-    equal_prefix = lambda: ______________________
-    while _______________________________:
-        if __________________:
+    equal_prefix = lambda: sum(first[:m]) == sum(second[:n])
+    while not equal_prefix() and m <= len(first) - 1 and n <= len(second) - 1:
+        if sum(first[:m]) < sum(second[:n]):
             m += 1
         else:
             n += 1

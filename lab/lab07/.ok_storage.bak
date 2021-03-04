@@ -1,1 +1,3 @@
 'subseqs-correct', (0, 70)
+'inc_subseqs-correct', (512, 70)
+'trade-correct', (1024, 70)
