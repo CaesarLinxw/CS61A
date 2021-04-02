@@ -74,7 +74,26 @@ def fox_says(start, middle, end, num):
             return middle + '-' + repeat(k - 1)
     return start + '-' + repeat(num) + '-' + end
 
-
+def primary_stress(t):
+    """
+    >>> word = tree("", [
+    tree("w", [tree("s", [tree("min")]), tree("w", [tree("ne")])]),
+    tree("s", [tree("s", [tree("so")]), tree("w", [tree("ta")])])])
+    >>> primary_stress(word)
+    'so'
+    >>> phrase = tree("", [
+    tree("s", [tree("s", [tree("law")]), tree("w", [tree("degree")])]),
+    tree("w", [tree("requirement")])])
+    >>> primary_stress(phrase)
+    'law'
+    """
+    def helper(t, num_s):
+        if is_leaf(t):
+            return [label(t), num_s]
+        if label(t) == "s":
+            num_s = num_s + 1
+        return max([helper(b, num_s) for b in branches(t)], key = lambda x: x[1])
+    return helper(t, 0)
 # Tree ADT
 
 def tree(label, branches=[]):
