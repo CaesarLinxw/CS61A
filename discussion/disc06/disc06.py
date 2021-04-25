@@ -94,8 +94,16 @@ def primary_stress(t):
             num_s = num_s + 1
         return max([helper(b, num_s) for b in branches(t)], key = lambda x: x[1])
     return helper(t, 0)
-# Tree ADT
 
+def subset_sum(seq, k):
+    if k in seq:
+        return True
+    elif len(seq) == 1 and k not in seq:
+        return False
+    else:
+        return subset_sum(seq[1:], k-seq[0]) or subset_sum(seq[1:], k)
+
+# Tree ADT
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
     for branch in branches:
