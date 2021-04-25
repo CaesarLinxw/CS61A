@@ -16,7 +16,15 @@ def nonlocalist():
             return f(i - 1)
         return prepend, lambda x: get(x)
 
-f = lambda x: print(x)
+def f(x):
+    def helper(x, i):
+        print(i)
+        if i < x:
+            helper(x, i+1)
+    return helper(x, 1)
+
+
+
 
 square = lambda x: x * x
 double = lambda x: 2 * x
