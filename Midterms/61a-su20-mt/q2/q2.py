@@ -51,7 +51,7 @@ def schedule(galaxy, sum_to, max_digit):
             ______
         return ans
 
-    return ______
+    return schedule_helper(galaxy, 0, 0)
 
 # ORIGINAL SKELETON FOLLOWS
 

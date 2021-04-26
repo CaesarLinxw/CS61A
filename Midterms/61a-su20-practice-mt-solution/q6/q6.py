@@ -21,8 +21,8 @@ def make_zipper(f1, f2, sequence):
     100
     """
     zipper = lambda x: x
-    helper = lambda f1, f2: lambda x: f1(f2(x))
-    while sequence > 0:
+    helper = lambda f, g: lambda x: f(g(x))
+    while sequence != 0:
         if sequence % 10 == 1:
             zipper = helper(f1, zipper)
         else:
@@ -53,12 +53,12 @@ def make_zipper(f1, f2, sequence):
 #     >>> sqincsqinc(2) # square(increment(square(increment(2)))), so 2 -> 3 -> 9 -> 10 -> 100
 #     100
 #     """
-#     zipper = ______
-#     helper = ______
-#     while ______:
-#         if ______ == 1:
-#             zipper = helper(f1, ______)
+#     zipper = lambda x: x
+#     helper = lambda f, g: lambda x: f(g(x))
+#     while sequence != 0:
+#         if sequence % 10 == 1:
+#             zipper = helper(f1, zipper)
 #         else:
-#             zipper = helper(f2, ______)
-#         sequence = ______
+#             zipper = helper(f2, zipper)
+#         sequence = sequence // 10
 #     return zipper

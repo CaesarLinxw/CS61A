@@ -17,8 +17,8 @@ def sequence(n, term):
         m = 1
         x = term(k)
         while m <= x:
-            ______
-        t = ______
+            m *= 10
+        t = t * m + x
         k = k + 1
     return t
 
@@ -38,11 +38,11 @@ def sequence(n, term):
 #     10100100010000
 #     """
 #     t, k = 0, 1
-#     while ______:
+#     while k <= n:
 #         m = 1
-#         x = ______
+#         x = term(k)
 #         while m <= x:
-#             ______
-#         t = ______
+#             m *= 10
+#         t = t * m + x
 #         k = k + 1
 #     return t
